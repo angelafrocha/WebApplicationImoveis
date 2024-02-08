@@ -17,7 +17,8 @@ namespace WebApplicationImoveis.Controllers
         {
             return Ok(ImovelRepository.GetImoveis());
         }
-        
+
+        // GET api/<ImovelController>/5
         [HttpGet("{id}")]
         public ActionResult<Imovel> Get(int id)
         {
@@ -26,6 +27,7 @@ namespace WebApplicationImoveis.Controllers
            
         }
 
+        // POST api/<ImovelController>
         [HttpPost]
         public ActionResult<Imovel> Post([FromBody] Imovel imovel)
         {
@@ -42,7 +44,7 @@ namespace WebApplicationImoveis.Controllers
         {
             var imovel = ImovelRepository.GetImovelId(id);
             if (imovel == null)
-            {
+        {
                 return NotFound();
             }
 
@@ -52,6 +54,7 @@ namespace WebApplicationImoveis.Controllers
             return Ok(imovel);
         }
 
+        // DELETE api/<ImovelController>/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
